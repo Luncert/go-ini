@@ -1,6 +1,7 @@
 package go_ini
 
 import (
+	"fmt"
 	"github.com/Luncert/go-ini/parser"
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 	"os"
@@ -18,6 +19,7 @@ func ParserIni(data string) *Config {
 	listener := newIniListener()
 	antlr.ParseTreeWalkerDefault.Walk(listener, tree)
 
+	fmt.Println(listener.config.ToString())
 	return listener.config
 }
 

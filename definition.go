@@ -29,7 +29,7 @@ func (c *Config) ToString() string {
 	builder.WriteLine("Config {")
 	builder.IncIndent()
 
-	builder.WriteLine("Sections: [")
+	builder.WriteLine("Sections = [")
 	builder.IncIndent()
 
 	for _, section := range c.Sections {
@@ -58,7 +58,7 @@ func (s *Section) ToString() string {
 	builder.WriteLine("Section(", s.Name, ") {")
 	builder.IncIndent()
 
-	builder.WriteLine("Variables: [")
+	builder.WriteLine("Variables = {")
 	builder.IncIndent()
 
 	var maxNameLen int
@@ -74,10 +74,10 @@ func (s *Section) ToString() string {
 	}
 
 	builder.DecIndent()
-	builder.WriteLine("]")
+	builder.WriteLine("}")
 
 	builder.DecIndent()
-	builder.WriteLine("}")
+	builder.WriteWithIndent("}")
 	return builder.String()
 }
 
