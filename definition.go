@@ -3,6 +3,7 @@ package go_ini
 import (
 	"fmt"
 	"github.com/Luncert/go-ini/util"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -20,8 +21,24 @@ type Config struct {
 	Sections map[string]*Section
 }
 
+func NewConfig() *Config {
+	return &Config{Sections: make(map[string]*Section)}
+}
+
 func (c *Config) Section(name string) *Section {
 	return c.Sections[name]
+}
+
+func (c *Config) AddSection(section *Section) *Config {
+	if len(section.Name) == 0 {
+		panic("invalid section name")
+	}
+	if _, ok := c.Sections[section.Name]; ok {
+		panic("duplicated section name " + section.Name)
+	}
+
+	c.Sections[section.Name] = section
+	return c
 }
 
 func (c *Config) ToString() string {
@@ -49,8 +66,27 @@ type Section struct {
 	Variables map[string]*Variable
 }
 
+func NewSection(name string) *Section {
+	return &Section{
+		Name:      name,
+		Variables: make(map[string]*Variable),
+	}
+}
+
 func (s *Section) Variable(name string) *Variable {
 	return s.Variables[name]
+}
+
+func (s *Section) AddVariable(v *Variable) *Section {
+	if len(v.Name) == 0 {
+		panic("invalid variable name")
+	}
+	if _, ok := s.Variables[v.Name]; ok {
+		panic("duplicated variable name in section " + s.Name)
+	}
+
+	s.Variables[v.Name] = v
+	return s
 }
 
 func (s *Section) ToString() string {
@@ -68,9 +104,16 @@ func (s *Section) ToString() string {
 		}
 	}
 
-	for name, variable := range s.Variables {
+	// sort by variable names and print each variable
+	names := make([]string, 0)
+	for name := range s.Variables {
+		names = append(names, name)
+	}
+	sort.Strings(names)
+	for _, name := range names {
+		v := s.Variables[name]
 		builder.WriteWithIndent(name, strings.Repeat(" ", maxNameLen-len(name)), " = ")
-		builder.WriteMultiLine(variable.Value.ToString(), false)
+		builder.WriteMultiLine(v.Value.ToString(), false)
 	}
 
 	builder.DecIndent()
@@ -82,7 +125,47 @@ func (s *Section) ToString() string {
 }
 
 type Variable struct {
+	Name  string
 	Value VariableValue
+}
+
+// NewVariable creates a new variable, supported value type are: bool, string, int, float64 and slice of these primitive types
+func NewVariable(name string, value interface{}) *Variable {
+	var v VariableValue
+	switch value.(type) {
+	case bool:
+		v = &BoolValue{V: value.(bool)}
+	case string:
+		v = &StringValue{V: value.(string)}
+	case int:
+		v = &IntegerValue{V: value.(int)}
+	case float64:
+		v = &DecimalValue{V: value.(float64)}
+	default:
+		list := &ListValue{}
+		switch value.(type) {
+		case []bool:
+			for _, tmp := range value.([]bool) {
+				list.V = append(list.V, &BoolValue{V: tmp})
+			}
+		case []string:
+			for _, tmp := range value.([]string) {
+				list.V = append(list.V, &StringValue{V: tmp})
+			}
+		case []int:
+			for _, tmp := range value.([]int) {
+				list.V = append(list.V, &IntegerValue{V: tmp})
+			}
+		case []float64:
+			for _, tmp := range value.([]float64) {
+				list.V = append(list.V, &DecimalValue{V: tmp})
+			}
+		default:
+			panic("unacceptable variable value")
+		}
+		v = list
+	}
+	return &Variable{Name: name, Value: v}
 }
 
 func (v *Variable) Bool() bool {

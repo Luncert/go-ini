@@ -8,8 +8,20 @@ import (
 	"strconv"
 )
 
-func ParserIni(data string) *Config {
+func UnmarshalFile(filename string) *Config {
+	fs, err := antlr.NewFileStream(filename)
+	if err != nil {
+		panic(err)
+	}
+	return parse(fs.InputStream)
+}
+
+func Unmarshal(data string) *Config {
 	input := antlr.NewInputStream(data)
+	return parse(input)
+}
+
+func parse(input *antlr.InputStream) *Config {
 	lexer := parser.NewIniLexer(input)
 	stream := antlr.NewCommonTokenStream(lexer, 0)
 	p := parser.NewIniParser(stream)
@@ -69,7 +81,7 @@ func (i *iniListener) EnterSectionHeader(ctx *parser.SectionHeaderContext) {
 
 func (i *iniListener) EnterVariableName(ctx *parser.VariableNameContext) {
 	variableName := ctx.GetText()
-	variable := &Variable{}
+	variable := &Variable{Name: variableName}
 
 	if _, ok := i.lastSection.Variables[variableName]; ok {
 		panic(DuplicatedVariableNameError(variableName, i.lastSection.Name))

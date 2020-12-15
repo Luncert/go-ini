@@ -9,5 +9,5 @@ import (
 func TestParserIni(t *testing.T) {
 	testData, err := ioutil.ReadFile("./data/test.ini")
 	assert.Nil(t, err)
-	ParserIni(string(testData))
+	Unmarshal(string(testData))
 }
