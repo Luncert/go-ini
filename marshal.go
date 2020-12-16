@@ -41,8 +41,6 @@ func Marshal(cfg *Config) string {
 			buf.WriteString(sec.Variable(name).Value.ToString())
 			buf.WriteRune('\n')
 		}
-
-		buf.WriteRune('\n')
 	}
 
 	return buf.String()
