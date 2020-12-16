@@ -41,6 +41,16 @@ func (c *Config) AddSection(section *Section) *Config {
 	return c
 }
 
+func (c *Config) CreateIfAbsent(sectionName string) *Section {
+	sec, ok := c.Sections[sectionName]
+	if ok {
+		return sec
+	}
+	sec = &Section{Name: sectionName}
+	c.Sections[sectionName] = sec
+	return sec
+}
+
 func (c *Config) ToString() string {
 	builder := util.NewStringBuilder(indentSpacing)
 	builder.WriteLine("Config {")
