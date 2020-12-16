@@ -46,7 +46,7 @@ func (c *Config) CreateIfAbsent(sectionName string) *Section {
 	if ok {
 		return sec
 	}
-	sec = &Section{Name: sectionName}
+	sec = NewSection(sectionName)
 	c.Sections[sectionName] = sec
 	return sec
 }
