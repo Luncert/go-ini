@@ -217,6 +217,10 @@ func (v *Variable) Type() int {
 	return v.Value.Type()
 }
 
+func (v *Variable) SetValue(value VariableValue) {
+	v.Value = value
+}
+
 func (v *Variable) Bool() bool {
 	return v.Value.Value().(bool)
 }
