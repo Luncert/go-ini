@@ -106,13 +106,13 @@ func (i *iniListener) EnterListValue(ctx *parser.ListValueContext) {
 func (i *iniListener) EnterBoolValue(ctx *parser.BoolValueContext) {
 	text := ctx.GetText()
 	v := text[0] == 'Y' || text[0] == 'y'
-	i.setValue(&BoolValue{V: v})
+	i.setValue(NewBoolValue(v))
 }
 
 func (i *iniListener) EnterStringValue(ctx *parser.StringValueContext) {
 	text := ctx.GetText()
 	v := text[1 : len(text)-1]
-	i.setValue(&StringValue{V: v})
+	i.setValue(NewStringValue(v))
 }
 
 func (i *iniListener) EnterIntegerValue(ctx *parser.IntegerValueContext) {
@@ -130,7 +130,7 @@ func (i *iniListener) EnterIntegerValue(ctx *parser.IntegerValueContext) {
 			panic(err)
 		}
 	}
-	i.setValue(&IntegerValue{V: number})
+	i.setValue(NewIntegerValue(number))
 }
 
 func (i *iniListener) EnterDecimalValue(ctx *parser.DecimalValueContext) {
@@ -139,5 +139,5 @@ func (i *iniListener) EnterDecimalValue(ctx *parser.DecimalValueContext) {
 	if err != nil {
 		panic(err)
 	}
-	i.setValue(&DecimalValue{V: number})
+	i.setValue(NewDecimalValue(number))
 }

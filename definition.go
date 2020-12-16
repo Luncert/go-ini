@@ -178,31 +178,31 @@ func NewVariable(name string, value interface{}) *Variable {
 	var v VariableValue
 	switch value.(type) {
 	case bool:
-		v = &BoolValue{V: value.(bool)}
+		v = NewBoolValue(value.(bool))
 	case string:
-		v = &StringValue{V: value.(string)}
+		v = NewStringValue(value.(string))
 	case int:
-		v = &IntegerValue{V: value.(int)}
+		v = NewIntegerValue(value.(int))
 	case float64:
-		v = &DecimalValue{V: value.(float64)}
+		v = NewDecimalValue(value.(float64))
 	default:
 		list := &ListValue{}
 		switch value.(type) {
 		case []bool:
 			for _, tmp := range value.([]bool) {
-				list.V = append(list.V, &BoolValue{V: tmp})
+				list.V = append(list.V, NewBoolValue(tmp))
 			}
 		case []string:
 			for _, tmp := range value.([]string) {
-				list.V = append(list.V, &StringValue{V: tmp})
+				list.V = append(list.V, NewStringValue(tmp))
 			}
 		case []int:
 			for _, tmp := range value.([]int) {
-				list.V = append(list.V, &IntegerValue{V: tmp})
+				list.V = append(list.V, NewIntegerValue(tmp))
 			}
 		case []float64:
 			for _, tmp := range value.([]float64) {
-				list.V = append(list.V, &DecimalValue{V: tmp})
+				list.V = append(list.V, NewDecimalValue(tmp))
 			}
 		default:
 			panic("unacceptable variable value")
@@ -251,6 +251,10 @@ type BoolValue struct {
 	V bool
 }
 
+func NewBoolValue(v bool) *BoolValue {
+	return &BoolValue{V: v}
+}
+
 func (b *BoolValue) Type() int {
 	return BoolType
 }
@@ -270,6 +274,10 @@ type StringValue struct {
 	V string
 }
 
+func NewStringValue(v string) *StringValue {
+	return &StringValue{V: v}
+}
+
 func (s *StringValue) Type() int {
 	return StringType
 }
@@ -284,6 +292,10 @@ func (s *StringValue) ToString() string {
 
 type IntegerValue struct {
 	V int
+}
+
+func NewIntegerValue(v int) *IntegerValue {
+	return &IntegerValue{V: v}
 }
 
 func (i *IntegerValue) Type() int {
@@ -302,6 +314,10 @@ type DecimalValue struct {
 	V float64
 }
 
+func NewDecimalValue(v float64) *DecimalValue {
+	return &DecimalValue{V: v}
+}
+
 func (d *DecimalValue) Type() int {
 	return DecimalType
 }
@@ -316,6 +332,10 @@ func (d *DecimalValue) ToString() string {
 
 type ListValue struct {
 	V []VariableValue
+}
+
+func NewListValue(v ...VariableValue) *ListValue {
+	return &ListValue{V: v}
 }
 
 func (l *ListValue) Type() int {
