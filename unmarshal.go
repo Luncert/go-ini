@@ -1,19 +1,18 @@
 package go_ini
 
 import (
-	"fmt"
 	"github.com/Luncert/go-ini/parser"
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 	"os"
 	"strconv"
 )
 
-func UnmarshalFile(filename string) *Config {
+func ReadConfigFile(filename string) (*Config, error) {
 	fs, err := antlr.NewFileStream(filename)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
-	return parse(fs.InputStream)
+	return parse(fs.InputStream), nil
 }
 
 func Unmarshal(data string) *Config {
@@ -31,7 +30,6 @@ func parse(input *antlr.InputStream) *Config {
 	listener := newIniListener()
 	antlr.ParseTreeWalkerDefault.Walk(listener, tree)
 
-	fmt.Println(listener.config.ToString())
 	return listener.config
 }
 

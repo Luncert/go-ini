@@ -49,8 +49,14 @@ func (c *Config) ToString() string {
 	builder.WriteLine("Sections = [")
 	builder.IncIndent()
 
-	for _, section := range c.Sections {
-		builder.WriteMultiLine(section.ToString(), true)
+	// sort by section names and print each section
+	names := make([]string, 0)
+	for name := range c.Sections {
+		names = append(names, name)
+	}
+	sort.Strings(names)
+	for _, name := range names {
+		builder.WriteMultiLine(c.Sections[name].ToString(), true)
 	}
 
 	builder.DecIndent()
@@ -168,6 +174,11 @@ func NewVariable(name string, value interface{}) *Variable {
 	return &Variable{Name: name, Value: v}
 }
 
+// Type equals to VariableValue.Type()
+func (v *Variable) Type() int {
+	return v.Value.Type()
+}
+
 func (v *Variable) Bool() bool {
 	return v.Value.Value().(bool)
 }
@@ -279,7 +290,6 @@ func (l *ListValue) Value() interface{} {
 
 func (l *ListValue) ToString() string {
 	builder := util.NewStringBuilder(indentSpacing)
-	builder.WriteWithIndent("[")
 
 	if len(l.V) > 0 {
 		builder.WriteString(l.V[0].ToString())
@@ -288,6 +298,5 @@ func (l *ListValue) ToString() string {
 		}
 	}
 
-	builder.WriteString("]")
 	return builder.String()
 }

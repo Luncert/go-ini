@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func ExampleNewConfig() {
+func ExampleMarshal() {
 	cfg := NewConfig()
 	cfg.AddSection(
 		NewSection("a").
@@ -18,27 +18,18 @@ func ExampleNewConfig() {
 			NewSection("c").
 				AddVariable(NewVariable("contact", []string{"12345", "123456"})))
 
-	fmt.Print(cfg.ToString())
+	fmt.Println(Marshal(cfg))
+
 	// Output:
-	// Config {
-	//  Sections = [
-	//    Section(a) {
-	//      Variables = {
-	//        age  = 18
-	//        name = "Joy"
-	//      }
-	//    }
-	//    Section(b) {
-	//      Variables = {
-	//        money  = 813.010000
-	//        single = no
-	//      }
-	//    }
-	//    Section(c) {
-	//      Variables = {
-	//        contact = "12345", "123456"
-	//      }
-	//    }
-	//  ]
-	// }
+	// [a]
+	// age = 18
+	// name = "Joy"
+	//
+	// [b]
+	// money = 813.010000
+	// single = no
+	//
+	// [c]
+	// contact = "12345", "123456"
+	//
 }
