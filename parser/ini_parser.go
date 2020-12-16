@@ -1,4 +1,4 @@
-// Code generated from parser/Ini.g4 by ANTLR 4.8. DO NOT EDIT.
+// Code generated from parser/Ini.g4 by ANTLR 4.9. DO NOT EDIT.
 
 package parser // Ini
 
@@ -16,47 +16,45 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 16, 96, 4,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 16, 98, 4,
 	2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7, 4,
 	8, 9, 8, 4, 9, 9, 9, 4, 10, 9, 10, 4, 11, 9, 11, 4, 12, 9, 12, 4, 13, 9,
-	13, 4, 14, 9, 14, 4, 15, 9, 15, 4, 16, 9, 16, 3, 2, 3, 2, 3, 2, 7, 2, 36,
-	10, 2, 12, 2, 14, 2, 39, 11, 2, 5, 2, 41, 10, 2, 3, 2, 3, 2, 3, 3, 3, 3,
-	3, 3, 3, 4, 3, 4, 3, 5, 3, 5, 7, 5, 52, 10, 5, 12, 5, 14, 5, 55, 11, 5,
-	3, 6, 3, 6, 3, 6, 3, 6, 5, 6, 61, 10, 6, 3, 7, 3, 7, 3, 8, 3, 8, 5, 8,
-	67, 10, 8, 3, 9, 3, 9, 3, 9, 6, 9, 72, 10, 9, 13, 9, 14, 9, 73, 3, 10,
-	3, 10, 3, 10, 5, 10, 79, 10, 10, 3, 11, 3, 11, 3, 11, 3, 12, 3, 12, 3,
-	13, 3, 13, 3, 14, 3, 14, 5, 14, 90, 10, 14, 3, 15, 3, 15, 3, 16, 3, 16,
-	3, 16, 2, 2, 17, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30,
-	2, 2, 2, 90, 2, 40, 3, 2, 2, 2, 4, 44, 3, 2, 2, 2, 6, 47, 3, 2, 2, 2, 8,
-	53, 3, 2, 2, 2, 10, 56, 3, 2, 2, 2, 12, 62, 3, 2, 2, 2, 14, 66, 3, 2, 2,
-	2, 16, 68, 3, 2, 2, 2, 18, 78, 3, 2, 2, 2, 20, 80, 3, 2, 2, 2, 22, 83,
-	3, 2, 2, 2, 24, 85, 3, 2, 2, 2, 26, 89, 3, 2, 2, 2, 28, 91, 3, 2, 2, 2,
-	30, 93, 3, 2, 2, 2, 32, 37, 5, 4, 3, 2, 33, 34, 7, 14, 2, 2, 34, 36, 5,
-	4, 3, 2, 35, 33, 3, 2, 2, 2, 36, 39, 3, 2, 2, 2, 37, 35, 3, 2, 2, 2, 37,
-	38, 3, 2, 2, 2, 38, 41, 3, 2, 2, 2, 39, 37, 3, 2, 2, 2, 40, 32, 3, 2, 2,
-	2, 40, 41, 3, 2, 2, 2, 41, 42, 3, 2, 2, 2, 42, 43, 7, 2, 2, 3, 43, 3, 3,
-	2, 2, 2, 44, 45, 5, 6, 4, 2, 45, 46, 5, 8, 5, 2, 46, 5, 3, 2, 2, 2, 47,
-	48, 7, 5, 2, 2, 48, 7, 3, 2, 2, 2, 49, 52, 5, 10, 6, 2, 50, 52, 5, 20,
-	11, 2, 51, 49, 3, 2, 2, 2, 51, 50, 3, 2, 2, 2, 52, 55, 3, 2, 2, 2, 53,
-	51, 3, 2, 2, 2, 53, 54, 3, 2, 2, 2, 54, 9, 3, 2, 2, 2, 55, 53, 3, 2, 2,
-	2, 56, 57, 7, 14, 2, 2, 57, 58, 5, 12, 7, 2, 58, 60, 7, 3, 2, 2, 59, 61,
-	5, 14, 8, 2, 60, 59, 3, 2, 2, 2, 60, 61, 3, 2, 2, 2, 61, 11, 3, 2, 2, 2,
-	62, 63, 7, 12, 2, 2, 63, 13, 3, 2, 2, 2, 64, 67, 5, 18, 10, 2, 65, 67,
-	5, 16, 9, 2, 66, 64, 3, 2, 2, 2, 66, 65, 3, 2, 2, 2, 67, 15, 3, 2, 2, 2,
-	68, 71, 5, 18, 10, 2, 69, 70, 7, 4, 2, 2, 70, 72, 5, 18, 10, 2, 71, 69,
-	3, 2, 2, 2, 72, 73, 3, 2, 2, 2, 73, 71, 3, 2, 2, 2, 73, 74, 3, 2, 2, 2,
-	74, 17, 3, 2, 2, 2, 75, 79, 5, 22, 12, 2, 76, 79, 5, 24, 13, 2, 77, 79,
-	5, 26, 14, 2, 78, 75, 3, 2, 2, 2, 78, 76, 3, 2, 2, 2, 78, 77, 3, 2, 2,
-	2, 79, 19, 3, 2, 2, 2, 80, 81, 7, 14, 2, 2, 81, 82, 7, 13, 2, 2, 82, 21,
-	3, 2, 2, 2, 83, 84, 7, 8, 2, 2, 84, 23, 3, 2, 2, 2, 85, 86, 7, 9, 2, 2,
-	86, 25, 3, 2, 2, 2, 87, 90, 5, 28, 15, 2, 88, 90, 5, 30, 16, 2, 89, 87,
-	3, 2, 2, 2, 89, 88, 3, 2, 2, 2, 90, 27, 3, 2, 2, 2, 91, 92, 7, 10, 2, 2,
-	92, 29, 3, 2, 2, 2, 93, 94, 7, 11, 2, 2, 94, 31, 3, 2, 2, 2, 11, 37, 40,
-	51, 53, 60, 66, 73, 78, 89,
+	13, 4, 14, 9, 14, 4, 15, 9, 15, 4, 16, 9, 16, 3, 2, 3, 2, 3, 2, 5, 2, 36,
+	10, 2, 7, 2, 38, 10, 2, 12, 2, 14, 2, 41, 11, 2, 5, 2, 43, 10, 2, 3, 2,
+	3, 2, 3, 3, 3, 3, 3, 3, 3, 4, 3, 4, 3, 5, 3, 5, 7, 5, 54, 10, 5, 12, 5,
+	14, 5, 57, 11, 5, 3, 6, 3, 6, 3, 6, 3, 6, 5, 6, 63, 10, 6, 3, 7, 3, 7,
+	3, 8, 3, 8, 5, 8, 69, 10, 8, 3, 9, 3, 9, 3, 9, 6, 9, 74, 10, 9, 13, 9,
+	14, 9, 75, 3, 10, 3, 10, 3, 10, 5, 10, 81, 10, 10, 3, 11, 3, 11, 3, 11,
+	3, 12, 3, 12, 3, 13, 3, 13, 3, 14, 3, 14, 5, 14, 92, 10, 14, 3, 15, 3,
+	15, 3, 16, 3, 16, 3, 16, 2, 2, 17, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20,
+	22, 24, 26, 28, 30, 2, 2, 2, 93, 2, 42, 3, 2, 2, 2, 4, 46, 3, 2, 2, 2,
+	6, 49, 3, 2, 2, 2, 8, 55, 3, 2, 2, 2, 10, 58, 3, 2, 2, 2, 12, 64, 3, 2,
+	2, 2, 14, 68, 3, 2, 2, 2, 16, 70, 3, 2, 2, 2, 18, 80, 3, 2, 2, 2, 20, 82,
+	3, 2, 2, 2, 22, 85, 3, 2, 2, 2, 24, 87, 3, 2, 2, 2, 26, 91, 3, 2, 2, 2,
+	28, 93, 3, 2, 2, 2, 30, 95, 3, 2, 2, 2, 32, 39, 5, 4, 3, 2, 33, 35, 7,
+	14, 2, 2, 34, 36, 5, 4, 3, 2, 35, 34, 3, 2, 2, 2, 35, 36, 3, 2, 2, 2, 36,
+	38, 3, 2, 2, 2, 37, 33, 3, 2, 2, 2, 38, 41, 3, 2, 2, 2, 39, 37, 3, 2, 2,
+	2, 39, 40, 3, 2, 2, 2, 40, 43, 3, 2, 2, 2, 41, 39, 3, 2, 2, 2, 42, 32,
+	3, 2, 2, 2, 42, 43, 3, 2, 2, 2, 43, 44, 3, 2, 2, 2, 44, 45, 7, 2, 2, 3,
+	45, 3, 3, 2, 2, 2, 46, 47, 5, 6, 4, 2, 47, 48, 5, 8, 5, 2, 48, 5, 3, 2,
+	2, 2, 49, 50, 7, 5, 2, 2, 50, 7, 3, 2, 2, 2, 51, 54, 5, 10, 6, 2, 52, 54,
+	5, 20, 11, 2, 53, 51, 3, 2, 2, 2, 53, 52, 3, 2, 2, 2, 54, 57, 3, 2, 2,
+	2, 55, 53, 3, 2, 2, 2, 55, 56, 3, 2, 2, 2, 56, 9, 3, 2, 2, 2, 57, 55, 3,
+	2, 2, 2, 58, 59, 7, 14, 2, 2, 59, 60, 5, 12, 7, 2, 60, 62, 7, 3, 2, 2,
+	61, 63, 5, 14, 8, 2, 62, 61, 3, 2, 2, 2, 62, 63, 3, 2, 2, 2, 63, 11, 3,
+	2, 2, 2, 64, 65, 7, 12, 2, 2, 65, 13, 3, 2, 2, 2, 66, 69, 5, 18, 10, 2,
+	67, 69, 5, 16, 9, 2, 68, 66, 3, 2, 2, 2, 68, 67, 3, 2, 2, 2, 69, 15, 3,
+	2, 2, 2, 70, 73, 5, 18, 10, 2, 71, 72, 7, 4, 2, 2, 72, 74, 5, 18, 10, 2,
+	73, 71, 3, 2, 2, 2, 74, 75, 3, 2, 2, 2, 75, 73, 3, 2, 2, 2, 75, 76, 3,
+	2, 2, 2, 76, 17, 3, 2, 2, 2, 77, 81, 5, 22, 12, 2, 78, 81, 5, 24, 13, 2,
+	79, 81, 5, 26, 14, 2, 80, 77, 3, 2, 2, 2, 80, 78, 3, 2, 2, 2, 80, 79, 3,
+	2, 2, 2, 81, 19, 3, 2, 2, 2, 82, 83, 7, 14, 2, 2, 83, 84, 7, 13, 2, 2,
+	84, 21, 3, 2, 2, 2, 85, 86, 7, 8, 2, 2, 86, 23, 3, 2, 2, 2, 87, 88, 7,
+	9, 2, 2, 88, 25, 3, 2, 2, 2, 89, 92, 5, 28, 15, 2, 90, 92, 5, 30, 16, 2,
+	91, 89, 3, 2, 2, 2, 91, 90, 3, 2, 2, 2, 92, 27, 3, 2, 2, 2, 93, 94, 7,
+	10, 2, 2, 94, 29, 3, 2, 2, 2, 95, 96, 7, 11, 2, 2, 96, 31, 3, 2, 2, 2,
+	12, 35, 39, 42, 53, 55, 62, 68, 75, 80, 91,
 }
-var deserializer = antlr.NewATNDeserializer(nil)
-var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
-
 var literalNames = []string{
 	"", "'='", "','", "", "'['", "']'",
 }
@@ -71,21 +69,25 @@ var ruleNames = []string{
 	"value", "listValue", "basicValue", "commentLine", "boolValue", "stringValue",
 	"numberValue", "integerValue", "decimalValue",
 }
-var decisionToDFA = make([]*antlr.DFA, len(deserializedATN.DecisionToState))
-
-func init() {
-	for index, ds := range deserializedATN.DecisionToState {
-		decisionToDFA[index] = antlr.NewDFA(ds, index)
-	}
-}
 
 type IniParser struct {
 	*antlr.BaseParser
 }
 
+// NewIniParser produces a new parser instance for the optional input antlr.TokenStream.
+//
+// The *IniParser instance produced may be reused by calling the SetInputStream method.
+// The initial parser configuration is expensive to construct, and the object is not thread-safe;
+// however, if used within a Golang sync.Pool, the construction cost amortizes well and the
+// objects can be used in a thread-safe manner.
 func NewIniParser(input antlr.TokenStream) *IniParser {
 	this := new(IniParser)
-
+	deserializer := antlr.NewATNDeserializer(nil)
+	deserializedATN := deserializer.DeserializeFromUInt16(parserATN)
+	decisionToDFA := make([]*antlr.DFA, len(deserializedATN.DecisionToState))
+	for index, ds := range deserializedATN.DecisionToState {
+		decisionToDFA[index] = antlr.NewDFA(ds, index)
+	}
 	this.BaseParser = antlr.NewBaseParser(input)
 
 	this.Interpreter = antlr.NewParserATNSimulator(this, deserializedATN, decisionToDFA, antlr.NewPredictionContextCache())
@@ -250,7 +252,7 @@ func (p *IniParser) Main() (localctx IMainContext) {
 	}()
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(38)
+	p.SetState(40)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
@@ -259,7 +261,7 @@ func (p *IniParser) Main() (localctx IMainContext) {
 			p.SetState(30)
 			p.Section()
 		}
-		p.SetState(35)
+		p.SetState(37)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
@@ -268,19 +270,26 @@ func (p *IniParser) Main() (localctx IMainContext) {
 				p.SetState(31)
 				p.Match(IniParserMultiNewLine)
 			}
-			{
-				p.SetState(32)
-				p.Section()
+			p.SetState(33)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
+			if _la == IniParserSectionHeader {
+				{
+					p.SetState(32)
+					p.Section()
+				}
+
 			}
 
-			p.SetState(37)
+			p.SetState(39)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 		}
 
 	}
 	{
-		p.SetState(40)
+		p.SetState(42)
 		p.Match(IniParserEOF)
 	}
 
@@ -387,11 +396,11 @@ func (p *IniParser) Section() (localctx ISectionContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(42)
+		p.SetState(44)
 		p.SectionHeader()
 	}
 	{
-		p.SetState(43)
+		p.SetState(45)
 		p.SectionBody()
 	}
 
@@ -482,7 +491,7 @@ func (p *IniParser) SectionHeader() (localctx ISectionHeaderContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(45)
+		p.SetState(47)
 		p.Match(IniParserSectionHeader)
 	}
 
@@ -616,33 +625,33 @@ func (p *IniParser) SectionBody() (localctx ISectionBodyContext) {
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(51)
+	p.SetState(53)
 	p.GetErrorHandler().Sync(p)
-	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 3, p.GetParserRuleContext())
+	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 4, p.GetParserRuleContext())
 
 	for _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 		if _alt == 1 {
-			p.SetState(49)
+			p.SetState(51)
 			p.GetErrorHandler().Sync(p)
-			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 2, p.GetParserRuleContext()) {
+			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 3, p.GetParserRuleContext()) {
 			case 1:
 				{
-					p.SetState(47)
+					p.SetState(49)
 					p.ValueLine()
 				}
 
 			case 2:
 				{
-					p.SetState(48)
+					p.SetState(50)
 					p.CommentLine()
 				}
 
 			}
 
 		}
-		p.SetState(53)
+		p.SetState(55)
 		p.GetErrorHandler().Sync(p)
-		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 3, p.GetParserRuleContext())
+		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 4, p.GetParserRuleContext())
 	}
 
 	return localctx
@@ -753,24 +762,24 @@ func (p *IniParser) ValueLine() (localctx IValueLineContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(54)
+		p.SetState(56)
 		p.Match(IniParserMultiNewLine)
 	}
 	{
-		p.SetState(55)
+		p.SetState(57)
 		p.VariableName()
 	}
 	{
-		p.SetState(56)
+		p.SetState(58)
 		p.Match(IniParserT__0)
 	}
-	p.SetState(58)
+	p.SetState(60)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<IniParserBooleanLiteral)|(1<<IniParserStringLiteral)|(1<<IniParserIntegerLiteral)|(1<<IniParserDecimalLiteral))) != 0 {
 		{
-			p.SetState(57)
+			p.SetState(59)
 			p.Value()
 		}
 
@@ -863,7 +872,7 @@ func (p *IniParser) VariableName() (localctx IVariableNameContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(60)
+		p.SetState(62)
 		p.Match(IniParserIdentifier)
 	}
 
@@ -968,20 +977,20 @@ func (p *IniParser) Value() (localctx IValueContext) {
 		}
 	}()
 
-	p.SetState(64)
+	p.SetState(66)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 5, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 6, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(62)
+			p.SetState(64)
 			p.BasicValue()
 		}
 
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(63)
+			p.SetState(65)
 			p.ListValue()
 		}
 
@@ -1094,24 +1103,24 @@ func (p *IniParser) ListValue() (localctx IListValueContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(66)
+		p.SetState(68)
 		p.BasicValue()
 	}
-	p.SetState(69)
+	p.SetState(71)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for ok := true; ok; ok = _la == IniParserT__1 {
 		{
-			p.SetState(67)
+			p.SetState(69)
 			p.Match(IniParserT__1)
 		}
 		{
-			p.SetState(68)
+			p.SetState(70)
 			p.BasicValue()
 		}
 
-		p.SetState(71)
+		p.SetState(73)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
@@ -1227,28 +1236,28 @@ func (p *IniParser) BasicValue() (localctx IBasicValueContext) {
 		}
 	}()
 
-	p.SetState(76)
+	p.SetState(78)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case IniParserBooleanLiteral:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(73)
+			p.SetState(75)
 			p.BoolValue()
 		}
 
 	case IniParserStringLiteral:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(74)
+			p.SetState(76)
 			p.StringValue()
 		}
 
 	case IniParserIntegerLiteral, IniParserDecimalLiteral:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(75)
+			p.SetState(77)
 			p.NumberValue()
 		}
 
@@ -1347,11 +1356,11 @@ func (p *IniParser) CommentLine() (localctx ICommentLineContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(78)
+		p.SetState(80)
 		p.Match(IniParserMultiNewLine)
 	}
 	{
-		p.SetState(79)
+		p.SetState(81)
 		p.Match(IniParserCommentLine)
 	}
 
@@ -1442,7 +1451,7 @@ func (p *IniParser) BoolValue() (localctx IBoolValueContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(81)
+		p.SetState(83)
 		p.Match(IniParserBooleanLiteral)
 	}
 
@@ -1533,7 +1542,7 @@ func (p *IniParser) StringValue() (localctx IStringValueContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(83)
+		p.SetState(85)
 		p.Match(IniParserStringLiteral)
 	}
 
@@ -1638,21 +1647,21 @@ func (p *IniParser) NumberValue() (localctx INumberValueContext) {
 		}
 	}()
 
-	p.SetState(87)
+	p.SetState(89)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case IniParserIntegerLiteral:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(85)
+			p.SetState(87)
 			p.IntegerValue()
 		}
 
 	case IniParserDecimalLiteral:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(86)
+			p.SetState(88)
 			p.DecimalValue()
 		}
 
@@ -1747,7 +1756,7 @@ func (p *IniParser) IntegerValue() (localctx IIntegerValueContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(89)
+		p.SetState(91)
 		p.Match(IniParserIntegerLiteral)
 	}
 
@@ -1838,7 +1847,7 @@ func (p *IniParser) DecimalValue() (localctx IDecimalValueContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(91)
+		p.SetState(93)
 		p.Match(IniParserDecimalLiteral)
 	}
 

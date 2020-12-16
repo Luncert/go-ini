@@ -1,6 +1,6 @@
 grammar Ini;
 
-main: (section (MultiNewLine section)*)? NewLine* EOF;
+main: (section (MultiNewLine section?)*)? EOF;
 
 section: sectionHeader sectionBody;
 
