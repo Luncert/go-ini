@@ -51,6 +51,15 @@ func (c *Config) CreateIfAbsent(sectionName string) *Section {
 	return sec
 }
 
+func (c *Config) SetIfAbsent(section *Section) *Section {
+	sec, ok := c.Sections[section.Name]
+	if ok {
+		return sec
+	}
+	c.Sections[section.Name] = section
+	return section
+}
+
 func (c *Config) ToString() string {
 	builder := util.NewStringBuilder(indentSpacing)
 	builder.WriteLine("Config {")
@@ -103,6 +112,25 @@ func (s *Section) AddVariable(v *Variable) *Section {
 
 	s.Variables[v.Name] = v
 	return s
+}
+
+func (s *Section) CreateIfAbsent(name string) *Variable {
+	v, ok := s.Variables[name]
+	if ok {
+		return v
+	}
+	v = &Variable{Name: name}
+	s.Variables[name] = v
+	return v
+}
+
+func (s *Section) SetIfAbsent(variable *Variable) *Variable {
+	v, ok := s.Variables[variable.Name]
+	if ok {
+		return v
+	}
+	s.Variables[variable.Name] = variable
+	return variable
 }
 
 func (s *Section) ToString() string {
